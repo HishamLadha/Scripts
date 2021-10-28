@@ -10,7 +10,7 @@ else
 
 	sudo apt-get install dialog
 	cmd=(dialog --separate-output --checklist "Please Select Software you want to install:" 22 76 16)
-	options=(1 "Flatpak" on  # any option can be set to default to "on"
+	options=(1 "Sublime Text" on  # any option can be set to default to "on"
 	         2 "Build Essentials" on
 	         3 "Git" on
 	         4 "brave-browser" on
