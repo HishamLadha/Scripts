@@ -77,7 +77,6 @@ PKGS=(
     # PRODUCTIVITY --------------------------------------------------------
 
     'galculator'            # Gnome calculator
-    'libreoffice-fresh'     # Libre office with extra features
 
     # VIRTUALIZATION ------------------------------------------------------
 
