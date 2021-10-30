@@ -10,21 +10,21 @@ else
 
 	sudo apt-get install dialog
 	cmd=(dialog --separate-output --checklist "Please Select Software you want to install:" 22 76 16)
-	options=(1 "Sublime Text" on  # any option can be set to default to "on"
+	options=(1 "Sublime Text" off  # any option can be set to default to "on"
 	         2 "Build Essentials" on
 	         3 "Git" on
 	         4 "brave-browser" on
-	         5 "librewolf" on
+	         5 "librewolf" off
 	         6 "virtualbox" on
-	         7 "obsidian" on
-	         8 "spotify" on
-	         9 "steam" on
-	         10 "discord" on
+	         7 "obsidian" off
+	         8 "spotify" off
+	         9 "steam" off
+	         10 "discord" off
 	         11 "mpv" on
 	         12 "qbittorrent" on
 	         13 "neovim" on
-	         14 "VSCode" on
-	         15 "zoom" on
+	         14 "VSCode" off
+	         15 "zoom" off
 	         16 "OpenJDK and JRE" on)
 		choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
 		clear
@@ -42,7 +42,7 @@ else
 			2)
 			    #Install Build Essentials
 				echo "Installing Build Essentials"
-				apt install -y build-essential
+				apt install build-essential -y
 				;;
     		3)
 				#Install git
@@ -57,7 +57,7 @@ else
                 curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
                 echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
                 apt update
-                apt install brave-browser
+                apt install brave-browser -y
 				;;
 
 			5)
@@ -69,7 +69,7 @@ else
 			6)
 				#Install Virtualbox
 				echo "Installing Virtualbox"
-				apt install virtualbox virtualbox-guest-iso virtualbox-dkms virtualbox-ext-pack -y
+				apt install virtualbox virtualbox-guest-iso -y
 				sudo usermod -aG vboxusers $USER
 				;;
 			7)
@@ -95,7 +95,7 @@ else
 			11)
 				#Install mpv
 				echo "Installing mpv"
-                apt install mpv -y
+                		apt install mpv -y
 				;;
 			12)
                 #Install Qbittorrent
@@ -105,7 +105,7 @@ else
 			13)
 				#Install neovim
 				echo "Installing neovim"
-				apt install neovim
+				apt install neovim -y
 				;;
 			14)
 
@@ -122,8 +122,7 @@ else
 			16)
 				#Install OpenJDK
 				echo "Installing OpenJDK"
-				apt install openjdk-17-jdk
-				apt install openjdk-17-jre
+				apt install openjdk-17-jdk openjdk-17-jre -y
 				;;
 
 	    esac
